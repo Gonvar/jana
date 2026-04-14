@@ -39,20 +39,20 @@ export function ContextWindowDemo() {
   const overflowing = PRESET_ITEMS.indexOf(desk[desk.length - 1]) >= DESK_CAPACITY
 
   return (
-    <div className="my-8 rounded-xl border border-stone-200 dark:border-stone-700 overflow-hidden">
-      <div className="px-6 py-4 bg-stone-50 dark:bg-stone-800/50 border-b border-stone-200 dark:border-stone-700">
-        <p className="text-xs font-semibold uppercase tracking-widest text-stone-500 mb-1">
+    <div className="my-8 rounded-xl border border-sand-200 overflow-hidden">
+      <div className="px-6 py-4 bg-sand-50 border-b border-sand-200">
+        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sand-700 mb-1 font-sans">
           Context window — the AI's "desk"
         </p>
-        <p className="text-sm text-stone-500 dark:text-stone-400">
+        <p className="text-sm text-stone-500 font-sans">
           Only {DESK_CAPACITY} things fit at once. When the desk is full, the oldest falls off.
         </p>
       </div>
 
       {/* Desk */}
       <div className="px-6 py-6">
-        <div className="relative rounded-xl border-2 border-dashed border-sand-300 dark:border-sand-600 bg-sand-50 dark:bg-sand-900/10 min-h-[140px] p-4">
-          <p className="absolute top-2 right-3 text-xs text-stone-400">
+        <div className="relative rounded-xl border-2 border-dashed border-sand-300 bg-sand-50 min-h-[140px] p-4">
+          <p className="absolute top-2 right-3 text-xs text-stone-400 font-sans">
             {desk.length} / {DESK_CAPACITY}
           </p>
           <div className="flex flex-wrap gap-2">
@@ -65,10 +65,10 @@ export function ContextWindowDemo() {
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -30, scale: 0.8 }}
                   transition={{ type: 'spring', stiffness: 300, damping: 25 }}
-                  className="flex items-center gap-1.5 rounded-lg border border-sand-200 bg-white dark:bg-stone-800 dark:border-stone-600 px-3 py-2 text-sm shadow-sm"
+                  className="flex items-center gap-1.5 rounded-lg border border-sand-200 bg-white px-3 py-2 text-sm shadow-sm"
                 >
                   <span>{item.emoji}</span>
-                  <span className="text-stone-700 dark:text-stone-300">{item.label}</span>
+                  <span className="text-espresso">{item.label}</span>
                 </motion.div>
               ))}
             </AnimatePresence>
@@ -79,7 +79,7 @@ export function ContextWindowDemo() {
           <motion.p
             initial={{ opacity: 0, y: -4 }}
             animate={{ opacity: 1, y: 0 }}
-            className="mt-3 text-sm text-amber-600 dark:text-amber-400"
+            className="mt-3 text-sm text-amber-600 font-sans"
           >
             The oldest item fell off the desk — the AI can no longer see it.
           </motion.p>
@@ -90,13 +90,13 @@ export function ContextWindowDemo() {
         <button
           onClick={addItem}
           disabled={desk.length >= PRESET_ITEMS.length}
-          className="rounded-lg bg-sage-600 hover:bg-sage-700 disabled:opacity-40 text-white text-sm px-4 py-2 font-medium transition-colors"
+          className="rounded-lg bg-sage-500 hover:bg-sage-600 disabled:opacity-40 text-white text-sm px-4 py-2 font-medium transition-colors font-sans"
         >
           Add message to conversation
         </button>
         <button
           onClick={reset}
-          className="rounded-lg border border-stone-300 dark:border-stone-600 text-stone-600 dark:text-stone-300 text-sm px-4 py-2 font-medium hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors"
+          className="rounded-lg border border-sand-300 text-stone-600 text-sm px-4 py-2 font-medium hover:bg-sand-100 transition-colors font-sans"
         >
           Reset
         </button>

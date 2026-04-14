@@ -48,7 +48,7 @@ export default function HomePage() {
           </h1>
 
           <p className="text-base text-stone-warm max-w-lg leading-relaxed font-sans mb-10">
-            Ten modules. No jargon. No hype. Principles that will still be true in five years,
+            Practical modules. No jargon. No hype. Principles that will still be true in five years,
             explained through the lens of the work you already do.
           </p>
 
@@ -82,7 +82,7 @@ export default function HomePage() {
               >
                 {/* Ordinal */}
                 <div className="ordinal group-hover:text-stone-muted mb-2 select-none">
-                  {String(i + 1).padStart(2, '0')}
+                  {String(mod.order).padStart(2, '0')}
                 </div>
 
                 {/* Status dot */}

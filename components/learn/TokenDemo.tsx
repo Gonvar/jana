@@ -52,8 +52,8 @@ export function TokenDemo({ defaultText = 'A warm terracotta wall with linen cur
 
   return (
     <div className="my-8 rounded-xl border border-stone-200 dark:border-stone-700 overflow-hidden">
-      <div className="px-6 py-4 bg-stone-50 dark:bg-stone-800/50 border-b border-stone-200 dark:border-stone-700">
-        <p className="text-xs font-semibold uppercase tracking-widest text-stone-500 mb-3">
+      <div className="px-6 py-4 bg-sand-50 border-b border-sand-200">
+        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sand-700 mb-3 font-sans">
           Token visualiser — type anything, then hit Tokenize
         </p>
         <div className="flex gap-2">
@@ -61,12 +61,12 @@ export function TokenDemo({ defaultText = 'A warm terracotta wall with linen cur
             type="text"
             value={text}
             onChange={(e) => setText(e.target.value)}
-            className="flex-1 rounded-lg border border-stone-300 dark:border-stone-600 bg-white dark:bg-stone-900 px-3 py-2 text-sm text-stone-800 dark:text-stone-200 focus:outline-none focus:ring-2 focus:ring-sage-400"
+            className="flex-1 rounded-lg border border-stone-300 bg-white px-3 py-2 text-sm text-espresso focus:outline-none focus:ring-2 focus:ring-sage-300 font-sans"
             placeholder="Type a sentence..."
           />
           <button
             onClick={handleTokenize}
-            className="shrink-0 rounded-lg bg-sage-600 hover:bg-sage-700 text-white text-sm px-4 py-2 font-medium transition-colors"
+            className="shrink-0 rounded-lg bg-sage-500 hover:bg-sage-600 text-white text-sm px-4 py-2 font-medium transition-colors font-sans"
           >
             Tokenize
           </button>
@@ -96,7 +96,7 @@ export function TokenDemo({ defaultText = 'A warm terracotta wall with linen cur
       </div>
 
       {revealed && tokens.length > 0 && (
-        <div className="px-6 pb-4 text-xs text-stone-400 dark:text-stone-500">
+        <div className="px-6 pb-4 text-xs text-stone-500 font-sans">
           {tokens.length} tokens · Each coloured block = one token · Spaces are usually part of the next token (shown as ·)
         </div>
       )}

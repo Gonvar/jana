@@ -9,14 +9,17 @@ export function KeyIdea({ children, className }: Props) {
   return (
     <div
       className={cn(
-        'my-8 bg-sage-50 border border-sage-200 rounded-xl px-6 py-5 dark:bg-sage-900/20 dark:border-sage-700',
+        'my-10 bg-sage-50 border-l-4 border-sage-400 rounded-r-xl px-6 py-5',
         className
       )}
     >
-      <p className="text-xs font-semibold uppercase tracking-widest text-sage-600 mb-2 dark:text-sage-400">
+      <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sage-600 mb-3 font-sans">
         Key idea
       </p>
-      <div className="text-stone-800 dark:text-stone-200 font-serif text-lg leading-snug">
+      <div
+        className="text-espresso text-lg leading-snug"
+        style={{ fontFamily: 'var(--font-cormorant)', fontStyle: 'italic', fontWeight: 400 }}
+      >
         {children}
       </div>
     </div>

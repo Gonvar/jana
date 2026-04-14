@@ -12,4 +12,7 @@ export const moduleMap: Record<string, () => Promise<{ default: React.ComponentT
   'image-models':           () => import('@/content/modules/08-image-models.mdx'),
   'design-workflows':       () => import('@/content/modules/09-design-workflows.mdx'),
   'staying-current':        () => import('@/content/modules/10-staying-current.mdx'),
+  'copyright-disclosure':   () => import('@/content/modules/12-copyright-disclosure.mdx'),
+  'client-communication':   () => import('@/content/modules/13-client-communication.mdx'),
+  'sourcing-with-ai':       () => import('@/content/modules/14-sourcing-with-ai.mdx'),
 }

@@ -7,6 +7,71 @@ import { moduleMap } from '@/lib/module-map'
 import Link from 'next/link'
 import { ArrowLeft, ArrowRight, CheckCircle2, Clock } from 'lucide-react'
 import { use } from 'react'
+import { MDXProvider } from '@mdx-js/react'
+import { Analogy }           from '@/components/learn/Analogy'
+import { KeyIdea }           from '@/components/learn/KeyIdea'
+import { CanDo }             from '@/components/learn/CanDo'
+import { CantDo }            from '@/components/learn/CantDo'
+import { TryThis }           from '@/components/learn/TryThis'
+import { Glossary }          from '@/components/learn/Glossary'
+import { TokenDemo }         from '@/components/learn/TokenDemo'
+import { ContextWindowDemo } from '@/components/learn/ContextWindowDemo'
+import { TemperatureDemo }   from '@/components/learn/TemperatureDemo'
+import { CompareProviders }  from '@/components/learn/CompareProviders'
+
+const MDX_COMPONENTS = {
+  Analogy, KeyIdea, CanDo, CantDo, TryThis, Glossary,
+  TokenDemo, ContextWindowDemo, TemperatureDemo, CompareProviders,
+  h2: ({ children }: { children: React.ReactNode }) => (
+    <h2 style={{ fontFamily: 'var(--font-cormorant)', fontWeight: 400, letterSpacing: '-0.01em' }}
+        className="text-3xl text-espresso leading-tight mt-12 mb-4 pb-2 border-b border-stone-border">
+      {children}
+    </h2>
+  ),
+  h3: ({ children }: { children: React.ReactNode }) => (
+    <h3 style={{ fontFamily: 'var(--font-cormorant)', fontWeight: 400, fontStyle: 'italic' }}
+        className="text-2xl text-espresso leading-snug mt-8 mb-3">
+      {children}
+    </h3>
+  ),
+  p: ({ children }: { children: React.ReactNode }) => (
+    <p className="text-[1.075rem] text-espresso leading-[1.9] my-5">{children}</p>
+  ),
+  strong: ({ children }: { children: React.ReactNode }) => (
+    <strong className="font-semibold text-espresso">{children}</strong>
+  ),
+  em: ({ children }: { children: React.ReactNode }) => (
+    <em className="italic text-stone-warm">{children}</em>
+  ),
+  ul: ({ children }: { children: React.ReactNode }) => (
+    <ul className="my-5 space-y-2">{children}</ul>
+  ),
+  ol: ({ children }: { children: React.ReactNode }) => (
+    <ol className="my-5 space-y-2 list-decimal list-inside">{children}</ol>
+  ),
+  li: ({ children }: { children: React.ReactNode }) => (
+    <li className="flex items-start gap-2.5 text-[1.075rem] text-espresso leading-relaxed">
+      <span className="mt-[0.6rem] w-1.5 h-1.5 rounded-full bg-terracotta shrink-0" />
+      <span>{children}</span>
+    </li>
+  ),
+  blockquote: ({ children }: { children: React.ReactNode }) => (
+    <blockquote className="border-l-[3px] border-terracotta pl-6 my-8"
+      style={{ fontFamily: 'var(--font-cormorant)', fontStyle: 'italic', fontSize: '1.25rem', lineHeight: '1.65', color: '#5a4a3a' }}>
+      {children}
+    </blockquote>
+  ),
+  hr: () => (
+    <div className="flex items-center gap-4 my-12 text-stone-border">
+      <div className="flex-1 h-px bg-stone-border" />
+      <span style={{ fontFamily: 'var(--font-cormorant)' }} className="text-xl">✦</span>
+      <div className="flex-1 h-px bg-stone-border" />
+    </div>
+  ),
+  code: ({ children }: { children: React.ReactNode }) => (
+    <code className="bg-[#EDE6D9] text-[#9E4E24] px-1.5 py-0.5 rounded text-[0.875em] font-mono">{children}</code>
+  ),
+}
 
 type Props = { params: Promise<{ slug: string }> }
 
@@ -79,7 +144,7 @@ export default function LearnPage({ params }: Props) {
 
             {/* Module list */}
             <nav className="hidden lg:flex flex-col gap-1">
-              {MODULES_CLIENT.map((m, i) => (
+              {MODULES_CLIENT.map((m) => (
                 <Link
                   key={m.slug}
                   href={`/learn/${m.slug}`}
@@ -93,7 +158,7 @@ export default function LearnPage({ params }: Props) {
                     className="shrink-0 mt-0.5 font-display text-xs"
                     style={{ fontFamily: 'var(--font-cormorant)' }}
                   >
-                    {String(i + 1).padStart(2, '0')}
+                    {String(m.order).padStart(2, '0')}
                   </span>
                   <span className="leading-snug">{m.title}</span>
                 </Link>
@@ -107,7 +172,7 @@ export default function LearnPage({ params }: Props) {
             <header className="mb-12 pb-8 border-b border-stone-border">
               <div className="flex items-center gap-2 mb-4">
                 <span className="text-xs text-stone-muted font-sans uppercase tracking-widest">
-                  Module {idx + 1}
+                  Module {mod.order}
                 </span>
                 <span className="text-stone-border">·</span>
                 <span className="flex items-center gap-1 text-xs text-stone-muted font-sans">
@@ -141,16 +206,17 @@ export default function LearnPage({ params }: Props) {
               ref={articleRef}
               className="prose prose-jana max-w-none font-sans"
             >
-              {MDXContent
-                ? <MDXContent />
-                : (
-                  <div className="space-y-4 animate-pulse">
-                    {[...Array(6)].map((_, i) => (
-                      <div key={i} className="h-4 bg-stone-border rounded" style={{ width: `${75 + (i % 3) * 10}%` }} />
-                    ))}
-                  </div>
-                )
-              }
+              {MDXContent ? (
+                <MDXProvider components={MDX_COMPONENTS}>
+                  <MDXContent />
+                </MDXProvider>
+              ) : (
+                <div className="space-y-4 animate-pulse">
+                  {[...Array(6)].map((_, i) => (
+                    <div key={i} className="h-4 bg-stone-border rounded" style={{ width: `${75 + (i % 3) * 10}%` }} />
+                  ))}
+                </div>
+              )}
             </article>
 
             {/* Mark complete */}

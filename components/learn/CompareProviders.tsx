@@ -13,7 +13,7 @@ const ROWS: Row[] = [
   {
     axis: 'Generating images',
     description: 'Moodboard visuals, render concepts, texture studies',
-    picks: 'Midjourney, DALL·E, Ideogram',
+    picks: 'Midjourney, ChatGPT Images, Flux, Firefly, Ideogram',
   },
   {
     axis: 'Speed over depth',
@@ -48,17 +48,17 @@ type Props = {
 
 export function CompareProviders({ highlight }: Props) {
   return (
-    <div className="my-8 overflow-x-auto rounded-xl border border-stone-200 dark:border-stone-700">
+    <div className="my-8 overflow-x-auto rounded-xl border border-sand-200">
       <table className="w-full text-sm">
         <thead>
-          <tr className="bg-stone-50 dark:bg-stone-800/50 border-b border-stone-200 dark:border-stone-700">
-            <th className="text-left px-5 py-3 font-semibold text-stone-600 dark:text-stone-300 w-1/4">
+          <tr className="bg-sand-50 border-b border-sand-200">
+            <th className="text-left px-5 py-3 font-semibold text-stone-500 w-1/4 font-sans text-xs uppercase tracking-[0.15em]">
               When you need…
             </th>
-            <th className="text-left px-5 py-3 font-semibold text-stone-600 dark:text-stone-300 w-1/2">
+            <th className="text-left px-5 py-3 font-semibold text-stone-500 w-1/2 font-sans text-xs uppercase tracking-[0.15em]">
               Context
             </th>
-            <th className="text-left px-5 py-3 font-semibold text-stone-600 dark:text-stone-300">
+            <th className="text-left px-5 py-3 font-semibold text-stone-500 font-sans text-xs uppercase tracking-[0.15em]">
               Good picks
             </th>
           </tr>
@@ -71,17 +71,17 @@ export function CompareProviders({ highlight }: Props) {
                 key={i}
                 className={`border-b border-stone-100 dark:border-stone-800 last:border-0 transition-colors ${
                   isHighlighted
-                    ? 'bg-sage-50 dark:bg-sage-900/10'
-                    : 'hover:bg-stone-50 dark:hover:bg-stone-800/30'
+                    ? 'bg-sage-50'
+                    : 'hover:bg-sand-50'
                 }`}
               >
-                <td className="px-5 py-3 font-medium text-stone-800 dark:text-stone-200 align-top">
+                <td className="px-5 py-3 font-medium text-espresso align-top text-sm font-sans">
                   {row.axis}
                 </td>
-                <td className="px-5 py-3 text-stone-500 dark:text-stone-400 align-top">
+                <td className="px-5 py-3 text-stone-500 align-top text-sm font-sans">
                   {row.description}
                 </td>
-                <td className="px-5 py-3 text-stone-700 dark:text-stone-300 align-top">
+                <td className="px-5 py-3 text-espresso align-top text-sm font-sans">
                   {row.picks}
                 </td>
               </tr>
@@ -89,7 +89,7 @@ export function CompareProviders({ highlight }: Props) {
           })}
         </tbody>
       </table>
-      <p className="px-5 py-3 text-xs text-stone-400 dark:text-stone-500 border-t border-stone-100 dark:border-stone-800">
+      <p className="px-5 py-3 text-xs text-stone-400 border-t border-sand-100 font-sans">
         This table is about criteria, not features — the criteria stay true even as products change.
       </p>
     </div>

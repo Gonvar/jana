@@ -2,7 +2,22 @@
   "permissions": {
     "allow": [
       "Bash(pnpm --version)",
-      "Bash(npm --version)"
+      "Bash(npm --version)",
+      "Read(//Users/arnaugonzalezvargas/Downloads/jana /app/**)",
+      "Read(//Users/arnaugonzalezvargas/Downloads/jana /components/**)",
+      "Read(//Users/arnaugonzalezvargas/Downloads/jana /content/modules/**)",
+      "Read(//Users/arnaugonzalezvargas/Downloads/jana /content/**)",
+      "Read(//Users/arnaugonzalezvargas/Downloads/jana /**)",
+      "Read(//Users/arnaugonzalezvargas/Downloads/jana /node_modules/framer-motion/**)",
+      "Bash(xxd)",
+      "Bash(python3:*)",
+      "Bash(npm run:*)",
+      "WebFetch(domain:www.freepik.com)",
+      "WebSearch",
+      "Bash(gh auth:*)",
+      "Bash(gh repo:*)",
+      "Bash(vercel --yes)",
+      "Bash(vercel --yes --name jana)"
     ]
   }
 }

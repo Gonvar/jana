@@ -18,8 +18,8 @@ export function Glossary({ term, definition, children }: Props) {
       <button
         onClick={() => setOpen((o) => !o)}
         className={cn(
-          'border-b border-dashed border-stone-400 dark:border-stone-500 cursor-help transition-colors',
-          open && 'border-sage-500 text-sage-700 dark:text-sage-400'
+          'border-b border-dashed border-stone-400 cursor-help transition-colors',
+          open && 'border-terracotta text-terracotta'
         )}
         aria-label={`Definition of ${term}`}
       >
@@ -35,13 +35,13 @@ export function Glossary({ term, definition, children }: Props) {
           <span
             ref={ref}
             role="tooltip"
-            className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 z-20 w-64 rounded-lg bg-stone-900 text-stone-100 text-sm px-4 py-3 shadow-xl dark:bg-stone-100 dark:text-stone-900"
+            className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 z-20 w-64 rounded-lg bg-espresso text-parchment text-sm px-4 py-3 shadow-xl"
           >
-            <strong className="block text-xs uppercase tracking-widest mb-1 text-stone-400 dark:text-stone-600">
+            <strong className="block text-xs uppercase tracking-widest mb-1 text-stone-400 font-sans">
               {term}
             </strong>
             {definition}
-            <span className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-stone-900 dark:border-t-stone-100" />
+            <span className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-espresso" />
           </span>
         </>
       )}
