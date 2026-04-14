@@ -1,13 +1,3 @@
----
-slug: tokens-and-context
-title: Tokens & context windows
-order: 3
-level: beginner
-duration: 8 min
-summary: Why AI sometimes forgets what you said — and how to work with that, not against it.
-tags: [fundamentals, prompting]
----
-
 Two small concepts — tokens and context windows — explain a surprisingly large number of AI quirks that would otherwise seem random. Why does a long conversation start going slightly off-track? Why does the model sometimes ignore instructions you gave earlier? Why is there a limit to how long a document you can paste in?
 
 These are not bugs. They are the shape of the tool.
@@ -29,7 +19,7 @@ A few things to notice:
 - Longer or technical words often get split
 - Spaces are usually attached to the word that follows them
 
-This matters because AI models have limits measured in tokens — not words, not characters. When a model has a "200,000 token context window," that translates to roughly 150,000 words — enough for a long novel. Smaller models might have 8,000 tokens — about 6,000 words.
+This matters because AI models have limits measured in tokens — not words, not characters. When a model has a "1 million token context window," that translates to roughly 750,000 words — about 500 dense pages of text, or three long novels. The leading models in 2026 offer between 1 million and 10 million tokens as standard.
 
 ## The context window: the AI's desk
 
@@ -39,11 +29,21 @@ Every conversation you have with an AI model happens within a **context window**
 
 <Analogy title="The desk analogy">
 Think of the context window as a physical desk. You can spread things across it — your project brief, the client's reference images translated to text, your earlier conversation, the model's responses. As long as something is on the desk, the model can see it and work with it. When the desk is full, and you add something new, the oldest things fall off the edge. The model can no longer see them — not because it forgot, but because they are no longer in front of it.
+
+Today's desks are very large — large enough to hold an entire project's worth of correspondence, specifications, and notes at once. But a large desk does not mean you can find everything on it equally well. Things buried in the middle of a very crowded surface get less attention than things at the front.
 </Analogy>
 
 <ContextWindowDemo />
 
 This is why very long conversations can subtly degrade. Early instructions, context you established at the start — these drift out of reach as the conversation grows. The model is not getting tired or bored. The early parts of your conversation have literally left the window.
+
+## The effective limit is smaller than the advertised one
+
+Context windows are much larger than they used to be. But there is a nuance worth understanding: the *advertised* size of a context window is not the same as its *effective* size.
+
+When a model is given an enormous amount of text to work with, its attention becomes unevenly distributed. Content in the middle of a very long context gets less reliable treatment than content near the beginning or end — a phenomenon sometimes called "context rot." In practice, models tend to work reliably with about 60–70% of their stated maximum before recall starts to degrade.
+
+**What this means in practice:** for most design work — project briefs, correspondence, specifications — you will never get close to this limit. But if you are pasting in very long documents and asking for detailed analysis, be aware that the model's attention may be thinner across the whole than it would be on a shorter, focused excerpt.
 
 ## Practical consequences
 
@@ -54,6 +54,12 @@ This is why very long conversations can subtly degrade. Early instructions, cont
 **Keep pasted documents lean.** If you paste in a long contract, specification sheet, or previous correspondence, you are spending tokens that could otherwise be used for the conversation itself. Paste only the sections that are relevant to what you are asking.
 
 **Notice degradation and restart.** If a long conversation starts producing slightly off answers — wrong names, ignoring earlier constraints, repeating itself — the most efficient fix is usually a new conversation with the key context re-established at the top.
+
+## Memory across conversations
+
+The picture here has changed meaningfully. The old rule — *each conversation starts from zero* — is still true of the underlying model, but most tools now offer persistent memory: a layer that stores key facts from previous sessions and surfaces them automatically in new ones.
+
+If you are using Claude, ChatGPT, or Gemini with memory enabled, the tool may already know your recurring clients, your typical project types, and preferences you have mentioned before. It is worth exploring what your tool remembers and how to manage it — both so you can benefit from it and so you can clear information that is no longer accurate.
 
 ## Both your words and its words count
 
@@ -67,5 +73,5 @@ Some models handle this by silently summarising older parts of the conversation 
 />
 
 <KeyIdea>
-The AI can only see what is currently in its context window — give it the most important context upfront, and start a fresh conversation when a project genuinely changes.
+The AI can only see what is currently in its context window — give it the most important context upfront, and start a fresh conversation when a project genuinely changes. Context windows are now very large, but attention thins over very long inputs, and the effective limit is smaller than the advertised one.
 </KeyIdea>

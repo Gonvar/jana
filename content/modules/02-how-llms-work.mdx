@@ -1,13 +1,3 @@
----
-slug: how-llms-work
-title: How a language model works
-order: 2
-level: beginner
-duration: 10 min
-summary: Predicting the next word, one at a time. Why that simple idea produces something so capable.
-tags: [fundamentals]
----
-
 In the previous module, we established what AI is: a pattern-matching system trained on an enormous amount of human writing. Now let's go one level deeper — not into mathematics, but into the actual mechanic of how it generates a response. This will explain a lot of things that otherwise seem mysterious, including why AI sometimes says something confidently wrong.
 
 ## One word at a time
@@ -21,6 +11,14 @@ Imagine you are mid-sentence and you pause. Someone who knows language well can 
 </Analogy>
 
 Each prediction influences the next. The model is not choosing from a pre-written list of possible answers. It is composing your response word by word, each word shaped by everything that came before it.
+
+## The hidden thinking that happens first
+
+With the most capable models, there is a step before the visible response that is worth knowing about.
+
+When you ask a complex question, the model does not go straight to answering. It first generates a private chain of reasoning — thinking through the problem step by step, testing approaches, catching its own mistakes — before producing the response you see. These are sometimes called *thinking tokens*: the model's internal working-out, invisible to you but shaping everything that follows.
+
+This is why asking a good model to reason through a decision — *"think through the pros and cons before recommending"* — often produces a noticeably better answer than asking it to respond immediately. You are giving the model permission to use the process it is best at.
 
 ## How the model was trained
 
@@ -46,17 +44,19 @@ When an AI model tells you a specific product has a certain fire rating, or that
 
 <Glossary term="hallucination" definition="When an AI model generates something that sounds accurate but is factually incorrect — not a deliberate lie, but a confident wrong prediction." />
 
-This is called hallucination, and it is not a bug the developers forgot to fix. It is a fundamental property of how these models work. The best models hallucinate less than earlier ones, but none hallucinate zero.
+This is called hallucination. The good news is that top models have improved dramatically: in 2024, roughly 8–12% of high-stakes queries contained factual errors. By 2026, the best models produce factual hallucinations in less than 1% of responses — a reduction of over 90%. Better models now explicitly say *"I don't know"* when uncertain rather than guessing.
+
+However, two areas remain higher risk: anything involving code or software (where APIs and libraries change faster than training data can keep up), and anything requiring real-time information the model simply cannot have. For these, verify regardless of how confident the output sounds.
 
 **The practical rule:** trust the model with language tasks — tone, structure, phrasing, synthesis. Verify it for facts, measurements, regulations, product specifications, and anything where being wrong has real consequences.
 
-## The model has no memory between conversations
+## Memory: the picture is changing
 
-Each conversation starts fresh. The model does not remember that last week you told it your client prefers contemporary Nordic interiors and hates anything that feels cold. Every session begins from zero, with only what you write in the current conversation as context.
+For most of the history of these tools, each conversation started fresh. The model had no memory of previous sessions — every time you opened a new chat, you were starting from zero.
 
-This is not a privacy feature or a limitation — it is simply how the architecture works. Within a conversation, the model can build on what has been said. Across conversations, it cannot.
+This is still true of the underlying model itself. But in 2026, most major tools — Claude, ChatGPT, Gemini — offer persistent memory features that store key facts between sessions and automatically surface them when relevant. If you tell the tool your client prefers contemporary Nordic interiors, it can remember that next time.
 
-Some tools offer memory features that work around this by injecting notes from previous sessions into new ones. But the underlying model itself has no persistent memory of its own.
+This is worth knowing because the rules around what to re-state at the start of a conversation are shifting. Within a conversation, you still need to front-load important context. But across conversations, a tool with memory enabled may already know things you would otherwise have to repeat.
 
 ## What emerges from all of this
 
@@ -70,5 +70,5 @@ This is worth sitting with. It is not lesser for being mechanical. It is impress
 />
 
 <KeyIdea>
-A language model generates responses by predicting what word comes next, one at a time, trained on patterns — not facts. That is why it is brilliant at language and unreliable about truth.
+A language model generates responses by predicting what word comes next, one at a time, trained on patterns — not facts. The best models now reason privately before answering, and factual errors have fallen dramatically — but verifying anything consequential remains the right habit.
 </KeyIdea>

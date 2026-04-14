@@ -1,13 +1,3 @@
----
-slug: agents-and-tools
-title: Agents, tools & skills
-order: 7
-level: intermediate
-duration: 10 min
-summary: What "agent" actually means. What MCP is. Where the skills Arnau built fit in.
-tags: [tools, advanced]
----
-
 Up to this point, we have mostly talked about AI as a conversation: you write something, the model responds. That is the version most people know. But there is a second mode of working with AI that is more powerful and, once understood, changes what you think is possible.
 
 This is the world of agents, tools, and skills.
@@ -30,6 +20,20 @@ An AI agent can:
 - Chain multiple steps together to complete a complex task
 
 The conversation you have with a regular AI model stays in the chat window. An agent reaches outside it.
+
+## How an agent thinks: the four-step loop
+
+When an agent works on a task, it moves through a repeating cycle — not once, but as many times as needed to complete the goal:
+
+**Perceive** — the agent takes in the current state. It might read a document, check a database, review the results of its last action.
+
+**Reason** — it works out what to do next. This is where the model's reasoning capability matters: breaking a complex goal into steps, deciding which tool to use, anticipating what might go wrong.
+
+**Act** — it does something: calls a tool, runs a search, executes a query, sends a request to an external service.
+
+**Reflect** — it checks what happened. Did the action work? Did it get what it expected? If something went wrong, it adjusts and tries again — without you having to intervene.
+
+This loop is what makes agents different from a single conversation. A conversation ends when you stop replying. An agent keeps cycling until the task is done or it genuinely cannot proceed.
 
 ## Tools: what agents use to act
 
@@ -75,5 +79,5 @@ You do not need to build agents. Arnau does that. What is useful is understandin
 />
 
 <KeyIdea>
-An agent is an AI that can take actions, not just talk. The skills Arnau built are agents — they use specific tools to do real tasks, not just describe how those tasks should be done.
+An agent is an AI that can take actions, not just talk. It works in a loop — perceive, reason, act, reflect — repeating until the task is done. The skills Arnau built are agents: they use specific tools to do real tasks, not just describe how those tasks should be done.
 </KeyIdea>

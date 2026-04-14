@@ -1,20 +1,10 @@
----
-slug: image-models
-title: Image models
-order: 8
-level: intermediate
-duration: 9 min
-summary: How diffusion works. What image AI is great for — and why it still struggles with fingers.
-tags: [tools, visual]
----
-
 So far this course has focused on text: language models that read and generate words. But AI can also generate images, and for someone working in a visual profession, this is often the part that feels most immediately relevant — and most confusing.
 
 Image models work differently from text models. Understanding how they work changes how you use them: what to expect, what to ask for, and why certain limitations exist.
 
 ## How diffusion works: the darkroom analogy
 
-Most contemporary image AI — Midjourney, DALL·E, Stable Diffusion, and similar tools — uses a technique called diffusion. The name comes from the physics of how particles spread through a medium, but the practical intuition is best understood through a different image entirely.
+Most contemporary image AI — Midjourney, ChatGPT Images, Flux, Adobe Firefly, Nano Banana, and similar tools — uses a technique called diffusion. The name comes from the physics of how particles spread through a medium, but the practical intuition is best understood through a different image entirely.
 
 <Analogy title="Developing a photograph">
 In a traditional darkroom, you begin with photographic paper that appears blank. You expose it to an image, then submerge it in developer solution. Gradually, out of apparent chaos — a uniform grey surface — an image begins to resolve. Forms emerge, then details, then tonal relationships. The final photograph was always latent in the paper; the process was one of progressive revelation.
@@ -38,6 +28,7 @@ For interior design work, image AI has several legitimate uses that fit into a p
     "Spatial atmosphere sketches — rough impressions of how a light quality, colour direction, or furniture configuration might feel in a space",
     "Inspiration beyond your image library — generating something adjacent to a reference you already have, but shifted in tone or period",
     "Presentation backgrounds and context images — generic architectural photography-style images for presentation decks when you do not have photography",
+    "Before-and-after visualisations — showing a client how a space might change with a different material, colour, or configuration",
   ]}
 />
 
@@ -73,9 +64,39 @@ Image model prompting is its own discipline, somewhat different from text prompt
 
 <TryThis
   prompt="A quiet bedroom in a converted warehouse apartment. Exposed concrete ceiling, warm wood floors, a single low bed with undyed linen. Late morning light from a large north-facing window. The mood is monastic but not cold — lived-in, personal, calm. Shot on medium format film."
-  context="Try this in Midjourney or DALL·E. Then generate three variations — notice how small changes in the description shift the output."
+  context="Try this in Midjourney, ChatGPT Images, or Nano Banana. Then generate three variations — notice how small changes in the description shift the output."
+/>
+
+## Nano Banana: a tool built for iteration
+
+One tool worth knowing by name is Nano Banana — Google's AI image model, available through Gemini and a growing number of design apps. For interior design work specifically, it has a few properties that make it different from earlier generators.
+
+The most useful of these is **conversational editing**. With most image generators, if a result is 80% right but the sofa is the wrong colour, you start again from scratch. With Nano Banana, you describe the change — *"change the sofa to deep olive green, keep everything else the same"* — and the model updates the image while preserving the rest. This maps naturally onto how designers actually iterate.
+
+<Analogy title="The iterative proof">
+Think of it like working with a physical proof in print production. You do not print a new brochure for every correction — you mark up what needs changing and the next version reflects only those changes. Nano Banana works similarly: your previous output becomes the starting point, and you direct it forward rather than starting over.
+</Analogy>
+
+It also accepts **multiple reference images** at once. If you have a stone texture you like, a room photograph with the right light quality, and a fabric swatch, you can give all three to the model and ask it to produce a scene that synthesises their qualities. It handles alignment of perspective, lighting direction, and surface logic automatically.
+
+**For interior design work, this opens some specific workflows:**
+
+- Upload a room photo and ask it to show the space with different wall colours or materials — without changing the furniture or light quality
+- Combine a client's reference images into a single coherent mood image for a presentation
+- Generate atmospheric variations of a direction you are developing — same bones, different light, season, or time of day
+- Use it as a fast client communication tool: show two or three "what if" directions as quick images, rather than describing them in words
+
+**Prompting for Nano Banana**
+
+It understands natural language more reliably than earlier tools — write the way you would brief a photographer or an illustrator. The one prompt shift worth making: include photographic language. *"Shot with a wide angle, soft afternoon light, shallow depth of field"* gives it concrete visual vocabulary. *"Warm and atmospheric"* alone is harder to anchor.
+
+When a result is mostly right, do not regenerate from scratch. Describe the specific change you want and let the model carry forward what is working.
+
+<TryThis
+  prompt="A kitchen renovation comparison. Left side: the existing kitchen — white laminate units, beige tiles, fluorescent strip light. Right side: the same kitchen with warm walnut cabinets, matte white worktop, pendant lights over the island, and warm evening light. Keep the layout identical. Shot on medium format camera."
+  context="Try this in Nano Banana (via Gemini) or another tool that supports reference-based editing. Notice the before/after brief — conversational image models handle this kind of comparison well."
 />
 
 <KeyIdea>
-Image models synthesise new images from noise, guided by your description — they are excellent for generative inspiration and atmospheric reference, not for accurate representations of real products, spaces, or text.
+Image models synthesise new images from noise, guided by your description — they are excellent for generative inspiration and atmospheric reference, not for accurate representations of real products, spaces, or text. Nano Banana adds conversational editing and multi-reference support, making it particularly useful for iterative design work.
 </KeyIdea>
