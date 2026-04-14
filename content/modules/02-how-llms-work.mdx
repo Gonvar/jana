@@ -1,0 +1,74 @@
+---
+slug: how-llms-work
+title: How a language model works
+order: 2
+level: beginner
+duration: 10 min
+summary: Predicting the next word, one at a time. Why that simple idea produces something so capable.
+tags: [fundamentals]
+---
+
+In the previous module, we established what AI is: a pattern-matching system trained on an enormous amount of human writing. Now let's go one level deeper — not into mathematics, but into the actual mechanic of how it generates a response. This will explain a lot of things that otherwise seem mysterious, including why AI sometimes says something confidently wrong.
+
+## One word at a time
+
+When you send a message to Claude or ChatGPT, the model does not think about your question, retrieve an answer from a database, and send it back. It does something far stranger and more interesting.
+
+It reads your message, and then — one small unit of language at a time — it predicts what should come next.
+
+<Analogy title="The prediction machine">
+Imagine you are mid-sentence and you pause. Someone who knows language well can often guess your next word — not because they know what you mean to say, but because they have heard so many sentences that certain words follow certain other words with predictable frequency. "The client preferred a more—" invites "neutral" or "contemporary" far more than "purple" or "catastrophic". A language model does this, but trained on billions of examples, running at high speed, making thousands of these small predictions in sequence to build a full response.
+</Analogy>
+
+Each prediction influences the next. The model is not choosing from a pre-written list of possible answers. It is composing your response word by word, each word shaped by everything that came before it.
+
+## How the model was trained
+
+The model did not arrive knowing any of this. It was trained — a process that took months of computation and hundreds of billions of examples.
+
+The training process is conceptually simple: show the model a piece of text, hide the last word, ask it to predict what the word should be, compare its guess to the real word, and adjust the model's internal settings slightly so it does a little better next time. Repeat this billions of times across an enormous amount of text.
+
+<Glossary term="training" definition="The process of exposing an AI model to vast amounts of data and adjusting its internal parameters until it learns to predict patterns accurately." />
+
+After enough repetitions, the model develops something that functions like an understanding of language — not because anyone taught it grammar or vocabulary directly, but because patterns in the data made those concepts necessary to predict well. Grammar is not a rule the model was given; it is a structure the model discovered because following it makes better predictions.
+
+## Why it sometimes makes things up
+
+This is the part that surprises most people, and once you understand it, it changes how you work with AI forever.
+
+The model was trained to produce *plausible* next words — not *true* ones. Plausibility and truth overlap a great deal, but they are not the same thing.
+
+<Analogy title="The very confident intern">
+Imagine a very bright, very eager intern on their first week. They have read everything they could find about your industry, they speak fluently about it, and they never say "I don't know" — because they have been trained (in a social sense) to appear competent. When they don't know the answer, they produce a confident-sounding answer assembled from the relevant things they have read. It is often close. Sometimes it is wrong in ways that are hard to spot, because it sounds exactly like how a correct answer would sound.
+</Analogy>
+
+When an AI model tells you a specific product has a certain fire rating, or that a building regulation requires a specific clearance, it is producing text that *looks like* what that answer would look like. It may be right. It may be subtly wrong. It has no access to a database of facts — only to the patterns of language it was trained on.
+
+<Glossary term="hallucination" definition="When an AI model generates something that sounds accurate but is factually incorrect — not a deliberate lie, but a confident wrong prediction." />
+
+This is called hallucination, and it is not a bug the developers forgot to fix. It is a fundamental property of how these models work. The best models hallucinate less than earlier ones, but none hallucinate zero.
+
+**The practical rule:** trust the model with language tasks — tone, structure, phrasing, synthesis. Verify it for facts, measurements, regulations, product specifications, and anything where being wrong has real consequences.
+
+## The model has no memory between conversations
+
+Each conversation starts fresh. The model does not remember that last week you told it your client prefers contemporary Nordic interiors and hates anything that feels cold. Every session begins from zero, with only what you write in the current conversation as context.
+
+This is not a privacy feature or a limitation — it is simply how the architecture works. Within a conversation, the model can build on what has been said. Across conversations, it cannot.
+
+Some tools offer memory features that work around this by injecting notes from previous sessions into new ones. But the underlying model itself has no persistent memory of its own.
+
+## What emerges from all of this
+
+What is remarkable is that something so mechanistic — predict the next word, correct, repeat — produces output that can feel genuinely thoughtful. A well-prompted model can write with clarity, synthesise complex information, find the right tone for a difficult message, and make connections across ideas. Not because it is thinking, but because good thinking, like good language, leaves patterns that can be learned.
+
+This is worth sitting with. It is not lesser for being mechanical. It is impressive precisely because the mechanism is so much simpler than you would expect for the result it produces.
+
+<TryThis
+  prompt="I'm writing a project summary for a residential client. The project was a full living and dining room renovation. The client was initially hesitant about the dark walls we proposed, but loved the result. Write a two-paragraph summary that's warm but professional, suitable for a portfolio page."
+  context="Notice: the model will produce something plausible — possibly very good. It doesn't know your client. All the texture comes from what you gave it."
+/>
+
+<KeyIdea>
+A language model generates responses by predicting what word comes next, one at a time, trained on patterns — not facts. That is why it is brilliant at language and unreliable about truth.
+</KeyIdea>

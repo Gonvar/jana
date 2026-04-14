@@ -1,0 +1,79 @@
+---
+slug: agents-and-tools
+title: Agents, tools & skills
+order: 7
+level: intermediate
+duration: 10 min
+summary: What "agent" actually means. What MCP is. Where the skills Arnau built fit in.
+tags: [tools, advanced]
+---
+
+Up to this point, we have mostly talked about AI as a conversation: you write something, the model responds. That is the version most people know. But there is a second mode of working with AI that is more powerful and, once understood, changes what you think is possible.
+
+This is the world of agents, tools, and skills.
+
+## What an "agent" actually is
+
+The word "agent" sounds more dramatic than it is. An AI agent is simply an AI that can do things in the world, not just talk about them.
+
+<Analogy title="The sous-chef analogy">
+A skilled sous-chef can receive a dish description from the head chef and handle the entire execution: source ingredients, prep components, coordinate timing, plate, and present. They are not simply waiting to answer questions about what to cook. They are taking actions in sequence, using whatever tools are at hand, to produce a result. An AI agent works similarly — it receives a goal, breaks it into steps, uses available tools to execute those steps, and returns a result. The difference from a conversational AI is that the agent can *act*, not just respond.
+</Analogy>
+
+<Glossary term="agent" definition="An AI system that can take actions — calling tools, running searches, reading files, executing code — in service of completing a goal, rather than just generating text responses." />
+
+An AI agent can:
+- Search the web and synthesise what it finds
+- Read a document you point it to
+- Run code that does a calculation
+- Call an external service (like a calendar or a database)
+- Chain multiple steps together to complete a complex task
+
+The conversation you have with a regular AI model stays in the chat window. An agent reaches outside it.
+
+## Tools: what agents use to act
+
+An agent's capabilities depend on what tools it has access to. Tools are specific abilities the AI can invoke — a web search tool, a code execution tool, a file reading tool, a calendar tool.
+
+<Glossary term="tool" definition="A specific capability given to an AI agent — for example, the ability to search the web, read a file, or run code. An agent uses whichever tools are relevant to complete its task." />
+
+When Arnau set up the accessibility checking and Chirtike skills, he was essentially giving an AI agent access to specific tools for those tasks. The agent does not just talk about accessibility — it can run the check.
+
+## MCP: the standard that makes this work
+
+You may have heard the term MCP — Model Context Protocol. It sounds technical, but the idea is straightforward.
+
+<Glossary term="MCP" definition="Model Context Protocol — a standard that lets AI models connect to external tools and data sources in a consistent way, so the same tool can work across different AI applications." />
+
+<Analogy title="The universal plug">
+Imagine if every country had a different plug socket, and every device needed a different adapter for every country. That is what the world of AI tools looked like before standards emerged. MCP is an attempt at a universal plug — a common language for AI models to connect to external tools. A tool built to the MCP standard can, in principle, work with any AI that supports MCP, rather than being built specifically for one model.
+</Analogy>
+
+In practice, this means the tools Arnau has built — the accessibility checker, the Chirtike colour analysis — can be connected to Claude or potentially other MCP-compatible AI applications in the future. The skill is not locked to a single tool.
+
+## The skills you are already using
+
+You have been using AI agents without necessarily thinking of them that way. The accessibility and Chirtike skills that Arnau set up are agents: they take an input (your design), use a tool (the specific checking logic), and return a structured result (the accessibility report, the colour analysis).
+
+This is what makes them more powerful than simply asking Claude to "check the accessibility of this design." A conversational model can make reasonable guesses based on general knowledge. An agent with the right tool can actually run the check.
+
+As AI tooling matures, the number of available tools will grow. Today there are tools for searching current information, reading PDFs, querying databases, and generating images. Tomorrow there will be tools for current product availability from specific suppliers, real-time material pricing, or drawing file interpretation. The underlying model is the same — what changes is what tools it has access to.
+
+## What this means practically
+
+You do not need to build agents. Arnau does that. What is useful is understanding:
+
+**Why a skill works better than a conversation.** When Arnau runs an accessibility check, the result is reliable in a way that asking Claude casually would not be — because it is using a defined tool with defined inputs and outputs, not a general language model making educated guesses.
+
+**What to ask for next.** Now that you have a mental model of what agents can do, you can think about what other repetitive, well-defined tasks in your workflow might benefit from a dedicated tool rather than an open-ended conversation.
+
+**Why these tools get better over time.** The model underneath may stay the same, but adding new tools to it expands what it can do without any fundamental change to the model.
+
+<TryThis
+  prompt="Think of one task in your design workflow that is: (1) repetitive, (2) has a clear input and a clear desired output, and (3) currently takes you more time than it should. Describe it in a paragraph. What would an AI agent that handled this task need to be able to do?"
+  context="This is a useful exercise in identifying where an agent could genuinely help — versus where a conversation is already sufficient."
+/>
+
+<KeyIdea>
+An agent is an AI that can take actions, not just talk. The skills Arnau built are agents — they use specific tools to do real tasks, not just describe how those tasks should be done.
+</KeyIdea>

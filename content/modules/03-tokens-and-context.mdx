@@ -1,0 +1,71 @@
+---
+slug: tokens-and-context
+title: Tokens & context windows
+order: 3
+level: beginner
+duration: 8 min
+summary: Why AI sometimes forgets what you said — and how to work with that, not against it.
+tags: [fundamentals, prompting]
+---
+
+Two small concepts — tokens and context windows — explain a surprisingly large number of AI quirks that would otherwise seem random. Why does a long conversation start going slightly off-track? Why does the model sometimes ignore instructions you gave earlier? Why is there a limit to how long a document you can paste in?
+
+These are not bugs. They are the shape of the tool.
+
+## Tokens: the Lego bricks of language
+
+AI models do not read text the way you do — word by word, letter by letter. They process text broken into small units called **tokens**, which sit somewhere between letters and words.
+
+The word "terracotta" might be a single token. "Extraordinary" might be split into two — "Extra" and "ordinary." Common words like "the" or "of" tend to be their own tokens; unusual or long words get split into parts. Numbers, punctuation, and spaces are also tokenised in their own ways.
+
+<Glossary term="token" definition="The small unit of text that an AI model actually processes — roughly 3-4 characters on average, or about ¾ of a word." />
+
+Try it below. Type a sentence from your work and see how it gets broken apart:
+
+<TokenDemo defaultText="The client wanted a warm, earthy palette with a terracotta accent wall." />
+
+A few things to notice:
+- Common short words tend to be single tokens
+- Longer or technical words often get split
+- Spaces are usually attached to the word that follows them
+
+This matters because AI models have limits measured in tokens — not words, not characters. When a model has a "200,000 token context window," that translates to roughly 150,000 words — enough for a long novel. Smaller models might have 8,000 tokens — about 6,000 words.
+
+## The context window: the AI's desk
+
+Every conversation you have with an AI model happens within a **context window** — the total amount of text the model can hold in mind at once. Everything in that window, the model can reference. Everything outside it, the model cannot see at all.
+
+<Glossary term="context window" definition="The total amount of text (measured in tokens) that a model can process in a single session — both your inputs and its outputs count toward this limit." />
+
+<Analogy title="The desk analogy">
+Think of the context window as a physical desk. You can spread things across it — your project brief, the client's reference images translated to text, your earlier conversation, the model's responses. As long as something is on the desk, the model can see it and work with it. When the desk is full, and you add something new, the oldest things fall off the edge. The model can no longer see them — not because it forgot, but because they are no longer in front of it.
+</Analogy>
+
+<ContextWindowDemo />
+
+This is why very long conversations can subtly degrade. Early instructions, context you established at the start — these drift out of reach as the conversation grows. The model is not getting tired or bored. The early parts of your conversation have literally left the window.
+
+## Practical consequences
+
+**Start fresh for new projects.** A new conversation is a clean desk. If you have been working on a residential project in one thread and you start a new commercial brief, open a fresh conversation rather than continuing in the same one. You will get cleaner results.
+
+**Front-load important context.** Whatever the model most needs to know — the client's brief, your constraints, the tone — put it near the beginning of your message or conversation. Do not assume it will remember something you mentioned casually twenty messages ago.
+
+**Keep pasted documents lean.** If you paste in a long contract, specification sheet, or previous correspondence, you are spending tokens that could otherwise be used for the conversation itself. Paste only the sections that are relevant to what you are asking.
+
+**Notice degradation and restart.** If a long conversation starts producing slightly off answers — wrong names, ignoring earlier constraints, repeating itself — the most efficient fix is usually a new conversation with the key context re-established at the top.
+
+## Both your words and its words count
+
+One detail that surprises people: the context window counts everything — your messages *and* the model's responses. In a long conversation with detailed back-and-forth, the model's own previous answers are consuming part of the window. This is why very long conversations eat through context faster than you might expect.
+
+Some models handle this by silently summarising older parts of the conversation and replacing the full text with a compressed version. Others simply stop being able to see old content. The behaviour varies by tool.
+
+<TryThis
+  prompt="Here is the brief for a new project: [paste your actual brief here]. Based only on what I've told you, what are the three most important questions you'd want answered before starting work on a colour palette?"
+  context="Practice giving the model a clean, complete brief at the start — rather than building context gradually across many messages. Notice how much better the response is when the context is clear from the beginning."
+/>
+
+<KeyIdea>
+The AI can only see what is currently in its context window — give it the most important context upfront, and start a fresh conversation when a project genuinely changes.
+</KeyIdea>

@@ -1,0 +1,81 @@
+---
+slug: image-models
+title: Image models
+order: 8
+level: intermediate
+duration: 9 min
+summary: How diffusion works. What image AI is great for — and why it still struggles with fingers.
+tags: [tools, visual]
+---
+
+So far this course has focused on text: language models that read and generate words. But AI can also generate images, and for someone working in a visual profession, this is often the part that feels most immediately relevant — and most confusing.
+
+Image models work differently from text models. Understanding how they work changes how you use them: what to expect, what to ask for, and why certain limitations exist.
+
+## How diffusion works: the darkroom analogy
+
+Most contemporary image AI — Midjourney, DALL·E, Stable Diffusion, and similar tools — uses a technique called diffusion. The name comes from the physics of how particles spread through a medium, but the practical intuition is best understood through a different image entirely.
+
+<Analogy title="Developing a photograph">
+In a traditional darkroom, you begin with photographic paper that appears blank. You expose it to an image, then submerge it in developer solution. Gradually, out of apparent chaos — a uniform grey surface — an image begins to resolve. Forms emerge, then details, then tonal relationships. The final photograph was always latent in the paper; the process was one of progressive revelation.
+
+Diffusion image models work in a structurally similar way, but in reverse and then forward again. During training, the model learned what it looks like to progressively add random visual noise to an image until nothing recognisable remains. During generation, it runs this process backwards: starting from pure noise and gradually removing it, guided by your text description, until an image resolves.
+</Analogy>
+
+<Glossary term="diffusion model" definition="A type of AI image generator that creates images by learning to reverse a process of adding noise to pictures — starting from randomness and gradually refining toward an image that matches a text description." />
+
+This is why the output is generative rather than retrieved. The model is not finding an image that matches your description from a library. It is synthesising a new image, pixel region by pixel region, guided by what your prompt suggests the result should look like.
+
+## What image models are genuinely good for
+
+For interior design work, image AI has several legitimate uses that fit into a professional workflow:
+
+<CanDo
+  title="Useful in a design practice"
+  items={[
+    "Moodboard concept images — generating an atmospheric image that captures a feeling or direction, used as a starting point for discussion with a client",
+    "Texture and material exploration — generating visual references for surface qualities, patterns, or material combinations that are hard to describe in words",
+    "Spatial atmosphere sketches — rough impressions of how a light quality, colour direction, or furniture configuration might feel in a space",
+    "Inspiration beyond your image library — generating something adjacent to a reference you already have, but shifted in tone or period",
+    "Presentation backgrounds and context images — generic architectural photography-style images for presentation decks when you do not have photography",
+  ]}
+/>
+
+The common thread: these are all *generative inspiration* uses. The AI is a tool for expanding visual vocabulary, not for producing final deliverables.
+
+## Where image models fail — and why
+
+<CantDo
+  title="Where image AI struggles"
+  items={[
+    "Accurate text in images — generated text is almost always wrong, garbled, or non-existent. Do not expect correct product labels, signage, or captions",
+    "Realistic human hands and fingers — hands remain a persistent challenge; they routinely appear with the wrong number of fingers or in anatomically impossible positions",
+    "Specific real products — asking for a specific sofa from a specific brand will produce something that looks vaguely similar, not an accurate representation",
+    "Architectural accuracy — generated spaces look plausible but rarely comply with real proportions, structural logic, or building physics",
+    "Consistent characters or spaces across images — generating the same room twice, or the same person twice, is not reliably possible without specific techniques",
+    "Fine material detail — the general impression of marble, linen, or aged brass may be good; the specific grain or weave will be invented",
+  ]}
+/>
+
+Most of these limitations trace back to the same root: the model is not rendering reality — it is synthesising a plausible image from patterns it has learned. Hands are hard because their exact configuration varies enormously and the model averages across this variation in ways that produce extra fingers. Text is hard because letterforms require precise spatial relationships that the pixel-level synthesis process does not naturally preserve.
+
+## Prompting for image models
+
+Image model prompting is its own discipline, somewhat different from text prompting. A few principles that transfer directly from design practice:
+
+**Describe the feeling, not just the objects.** "A living room with a navy sofa and brass coffee table" produces a generic result. "A living room at dusk, a navy sofa catching the last light through tall windows, a worn brass coffee table with the patina of years" produces something with atmosphere.
+
+**Reference styles, periods, and photographic qualities.** "Shot on medium format film, late afternoon light" gives the model compositional and tonal vocabulary. "In the style of Axel Vervoordt's atmospheric photography" provides aesthetic direction.
+
+**Iterate quickly.** The first output is almost never the final one. Generate several variations, notice what is working, and refine. The workflow is closer to mood board curation than final production.
+
+**Treat it as a starting point.** The most effective use of image AI in professional practice is not to generate finished work, but to generate raw material — something to react to, edit, or use as a direction-setting reference.
+
+<TryThis
+  prompt="A quiet bedroom in a converted warehouse apartment. Exposed concrete ceiling, warm wood floors, a single low bed with undyed linen. Late morning light from a large north-facing window. The mood is monastic but not cold — lived-in, personal, calm. Shot on medium format film."
+  context="Try this in Midjourney or DALL·E. Then generate three variations — notice how small changes in the description shift the output."
+/>
+
+<KeyIdea>
+Image models synthesise new images from noise, guided by your description — they are excellent for generative inspiration and atmospheric reference, not for accurate representations of real products, spaces, or text.
+</KeyIdea>

@@ -1,0 +1,84 @@
+---
+slug: prompting-for-designers
+title: Prompting for designers
+order: 4
+level: beginner
+duration: 12 min
+summary: Structure your requests like a brief. Role, task, format, constraints — and examples.
+tags: [prompting, practical]
+---
+
+The quality of what you get from an AI model is almost entirely determined by the quality of what you put in. This is both the most empowering and the most frustrating thing about working with these tools — there is no magic, only craft.
+
+The good news is that the craft of prompting is not technical. It is the craft of being clear about what you want. And if you have ever written a client brief, or a project specification, or a set of instructions for a colleague — you already know how to do this.
+
+## Think of it as briefing a very capable contractor
+
+The mental model that works best: you are the art director, and the AI is a highly capable contractor who has read an enormous amount about your field, has no prior knowledge of your specific project, and will execute exactly what you describe — no more, no less.
+
+<Analogy title="The contractor brief">
+A good contractor does not read your mind. Give them a vague brief and they will fill the gaps with assumptions — some correct, many not. Give them a specific brief with clear constraints and you will get something usable on the first pass. The more you invest in the brief, the less time you spend on revisions.
+</Analogy>
+
+A weak prompt: *"Write something about my new project."*
+
+A strong prompt: *"You are a copywriter who specialises in high-end residential interiors. Write a 150-word project summary for a portfolio website. The project was a Modernist apartment renovation in Barcelona. The client wanted warmth and craft without losing the building's original geometric character. Tone: refined, confident, and warm. No superlatives. No exclamation marks."*
+
+The difference is not length — it is specificity. The stronger prompt defines role, task, format, content, tone, and constraints.
+
+## The four elements of a strong prompt
+
+Think of these as the four sections of a good brief:
+
+**Role** — Who is the AI being asked to be? *"You are a professional interior design copywriter..."* or *"Act as a senior project manager reviewing this specification for errors..."*
+
+**Task** — What exactly do you want? Be concrete. Not "write about the project" but "write a 100-word description for an Instagram caption, told in second person, focusing on the transformation of the entrance hall."
+
+**Format** — What should the output look like? A bulleted list? A formal letter? Three options to choose from? A table? If you do not specify, the model will guess — often well, but not always in the way that works for your workflow.
+
+**Constraints** — What must it not do? No jargon. No more than 200 words. Use the client's name, which is Martínez. Avoid the word "journey." Constraints are as important as instructions — they prevent the model from filling your brief with things you do not want.
+
+## Temperature: precise or creative?
+
+There is a setting in most AI tools — rarely labelled obviously — that controls how exploratory or conservative the model's outputs are. At low temperature, the model produces the most predictable, reliable response. At high temperature, it takes more risks, makes less expected connections, and is sometimes more interesting.
+
+In practice, you can simulate this in your prompt: *"Give me five wildly different options"* will push the model toward variety; *"Give me the single most appropriate option"* will pull it toward precision.
+
+<TemperatureDemo />
+
+For functional tasks — checking a document, reformatting a spec sheet, writing a formal email — lower temperature (more predictable) is usually better. For creative tasks — colour direction names, concept descriptions, marketing copy — giving the model permission to explore often produces better results.
+
+## Three worked examples
+
+### 1. Mood board narrative
+
+**The prompt:**
+
+<TryThis
+  prompt="You are an interior design writer. I am creating a mood board for a residential bedroom renovation. The client is a woman in her early 40s who works in fashion. She wants the room to feel like a retreat from her busy life — quiet, sensory, deeply personal. The references I have gathered include: raw linen, dried botanicals, aged brass, very dark walls (almost black-green), and a single low platform bed. Write a 120-word mood board narrative that captures the feeling of this direction. Tone: poetic but grounded. No clichés about 'sanctuary' or 'haven'."
+  context="Notice the specific instruction to avoid clichés — this is a constraint. Without it, the model will default to exactly the words you want to avoid."
+/>
+
+### 2. Client email
+
+<TryThis
+  prompt="Write an email to a client informing them that the custom sofa they ordered has been delayed by 6 weeks due to a supply issue with the fabric. The client is warm but values transparency and directness. Offer one concrete alternative: we can proceed with a different fabric from our existing stock that is similar in quality and texture. Keep the email under 200 words. Professional but personal tone — we have an established relationship."
+  context="Give the model the emotional register of the relationship ('established', 'warm but direct'). This shapes the tone more than any adjective you could use."
+/>
+
+### 3. Specification check
+
+<TryThis
+  prompt="Review the following room specification for internal inconsistencies — things that contradict each other, dimensions that seem implausible, or missing information that a contractor would need. List any issues you find as bullet points. Do not rewrite the specification — only flag problems.\n\n[Paste your specification here]"
+  context="Using AI as a second pair of eyes on documents is one of its most reliable uses. It is pattern-matching for inconsistency — something it does well."
+/>
+
+## Iteration is the method
+
+Rarely will your first prompt produce exactly what you want. That is not failure — it is the process. Read the output, notice what is wrong or missing, and refine. *"That is good, but make the opening line stronger and remove the mention of timeline — the client does not need to know that."*
+
+This is no different from reviewing a colleague's work and giving feedback. The skill is in reading what you received and knowing what to ask for next.
+
+<KeyIdea>
+Prompt like you brief: give the AI a role, a clear task, a format, and your constraints — then iterate the same way you would with any creative collaborator.
+</KeyIdea>

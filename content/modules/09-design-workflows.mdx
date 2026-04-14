@@ -1,0 +1,98 @@
+---
+slug: design-workflows
+title: Workflows for interior design
+order: 9
+level: intermediate
+duration: 12 min
+summary: Five concrete recipes — palette from a photo, accessibility pass, email rewriter, and more.
+tags: [practical, workflows]
+---
+
+This module is different from the others. Rather than principles, it offers recipes — specific, repeatable workflows for tasks that come up regularly in interior design practice. Each one is ready to use today.
+
+The goal is not completeness. It is to give you five concrete workflows that work, so you can see the pattern and adapt it to the tasks in your own practice that feel slow or repetitive.
+
+## Recipe 1: Palette from a photograph
+
+**When to use:** You have a reference image — a fabric swatch, a landscape, a piece of art — and you want to extract a colour palette with names and character descriptions.
+
+**The workflow:**
+1. Open a new conversation with Claude
+2. Upload the photograph
+3. Use the prompt below
+
+<TryThis
+  prompt="I'm attaching an image that captures the colour mood I want for a living room project. Analyse the colours present in the image and propose a interior design palette based on it. For each colour: give it a name that would work on a specification sheet, describe its character in one sentence, and suggest a primary use (wall, textile, accent, etc). I want 5-6 colours total, including at least one dark and one near-neutral. Format as a simple list."
+  context="The key move: asking for a specification-ready name and a primary use alongside the description. This makes the output immediately usable, not just poetic."
+/>
+
+**What to do with the output:** The AI's colour names are a starting point, not final. Use them as the brief for your own selection from actual material samples. The character descriptions are useful for client presentations.
+
+---
+
+## Recipe 2: Accessibility and contrast check
+
+**When to use:** Before finalising a colour scheme, you want to check that text, wayfinding, or key visual elements meet accessibility standards.
+
+This is where the dedicated accessibility skill Arnau built is more reliable than a general conversation — it runs an actual check rather than guessing. But if you want a quick conversational assessment:
+
+<TryThis
+  prompt="I'm specifying a colour scheme for a retail interior. The primary wall colour is a warm off-white (approximately #F5F0E4). The signage and wayfinding text will be in a deep terracotta (approximately #8B3A1E). The floor is a medium warm oak. Can you assess whether this combination is likely to meet basic accessibility standards for visual contrast? Be specific about which pairings work and which might be borderline — and what I should test properly before finalising."
+  context="Use hex codes when you have them — they are far more precise than colour names, which the model interprets inconsistently."
+/>
+
+**Note:** A conversational model can give you a useful preliminary assessment, but formal accessibility compliance requires verification with proper contrast-checking tools. The AI is helping you identify where to focus your checking, not replacing the check.
+
+---
+
+## Recipe 3: Client email rewriter
+
+**When to use:** You have written a draft email to a client, but it is too long, too blunt, or the tone is off. Or you have a difficult message to deliver and you want help finding the right language.
+
+<TryThis
+  prompt="Rewrite the following email to a client. The situation: we need to inform them that the custom rug they ordered has a 10-week delay. We are proposing that in the meantime, we install a temporary sisal rug we have in our warehouse, which will allow the rest of the installation to proceed on schedule. The client is warm but formal — they appreciate professionalism. Keep the email under 180 words. Do not open with 'I hope this email finds you well.' End with a clear next step.\n\n[Paste your draft here, or leave blank for a fresh draft]"
+  context="If you are starting from scratch rather than rewriting, remove '[Paste your draft here]' and the model will write from the brief alone. If you have a draft, paste it and it will improve it."
+/>
+
+**Variation — difficult message:**
+
+<TryThis
+  prompt="I need to tell a client that their budget will not accommodate the specification they have approved, and that we need to have a conversation about where to adjust. I want to be honest without being alarming, and I want to open the door to a constructive conversation rather than just delivering bad news. Draft an email that does this in under 200 words. The client has been easy to work with and we have a good relationship."
+  context="AI is particularly useful for difficult messages — it helps you find language that is clear without being blunt, and warm without being evasive."
+/>
+
+---
+
+## Recipe 4: Specification sheet tidier
+
+**When to use:** You have a rough specification — either written quickly, assembled from notes, or received in a messy format from a supplier — and you want to make it clear and consistent before it goes out.
+
+<TryThis
+  prompt="Tidy the following room specification. Make it consistent in format and language, flag anything that is ambiguous or that a contractor might misinterpret, and note any information that seems to be missing. Do not change what it says — only how it says it, and point out problems.\n\n[Paste specification here]"
+  context="The instruction 'do not change what it says' is essential. Without it, the model may helpfully invent details to fill gaps — which is worse than leaving them as gaps."
+/>
+
+---
+
+## Recipe 5: Source-list idea generator
+
+**When to use:** You are in the early stages of a project and want to expand your sourcing options beyond your usual suppliers — or you want a first pass on what categories to source before doing the actual sourcing.
+
+<TryThis
+  prompt="I am specifying a kitchen for a residential project. The aesthetic direction is quiet Nordic modernism — natural materials, restrained palette, very high quality but not ostentatious. The client has a generous budget. Give me a sourcing list: the categories of items I need to specify (not specific products — categories), organised by: (1) primary structure and surfaces, (2) fittings and hardware, (3) lighting, (4) textiles and soft elements. For each category, note any material or finish direction that fits the brief."
+  context="This is a useful starting framework for a new project type or a category you are less familiar with. The model has read an enormous amount about sourcing conventions across different aesthetic territories."
+/>
+
+## The pattern behind the recipes
+
+Every workflow above follows the same logic:
+- Give the model a clear role and context
+- Define the output format explicitly
+- Include the constraints that protect you (do not change what it says, flag problems rather than resolve them, keep under X words)
+- Treat the output as raw material, not a finished product
+
+That last point is important. The fastest users of AI in professional practice are not the ones who accept the first output — they are the ones who iterate quickly, treating the model as a fast collaborator who needs good direction.
+
+<KeyIdea>
+The goal of AI in your workflow is to spend less time on language and formatting, and more time on the decisions that require your actual expertise — the ones no model can make for you.
+</KeyIdea>
