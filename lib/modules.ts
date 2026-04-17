@@ -46,12 +46,19 @@ export function getAllGlossaryTerms(): Record<string, string> {
   const files = fs.readdirSync(MODULES_DIR).filter((f) => f.endsWith('.mdx'))
   const terms: Record<string, string> = {}
 
+  const tagRe = /<Glossary\b([^>]*?)\/?>/g
+  const attrRe = /(\w+)\s*=\s*(?:"([^"]*)"|'([^']*)'|\{`([^`]*)`\})/g
+
   for (const filename of files) {
     const raw = fs.readFileSync(path.join(MODULES_DIR, filename), 'utf8')
-    // Extract <Glossary term="..." definition="..."> from MDX content
-    const matches = raw.matchAll(/<Glossary\s+term="([^"]+)"\s+definition="([^"]+)"/g)
-    for (const m of matches) {
-      terms[m[1].toLowerCase()] = m[2]
+    for (const tag of raw.matchAll(tagRe)) {
+      const attrs: Record<string, string> = {}
+      for (const a of tag[1].matchAll(attrRe)) {
+        attrs[a[1]] = a[2] ?? a[3] ?? a[4] ?? ''
+      }
+      if (attrs.term && attrs.definition) {
+        terms[attrs.term.toLowerCase()] = attrs.definition
+      }
     }
   }
 
