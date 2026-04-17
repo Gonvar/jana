@@ -1,8 +1,9 @@
 import createMDX from '@next/mdx'
 
 const withMDX = createMDX({
-  // Keep options minimal — frontmatter is read by gray-matter in lib/modules.ts,
-  // not via remark plugins (avoids serialization issues with Turbopack).
+  options: {
+    remarkPlugins: [['remark-frontmatter', ['yaml']]],
+  },
 })
 
 /** @type {import('next').NextConfig} */

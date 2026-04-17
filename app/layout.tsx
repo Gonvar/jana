@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Cormorant_Garamond, DM_Sans } from 'next/font/google'
+import Link from 'next/link'
 import './globals.css'
 
 const cormorant = Cormorant_Garamond({
@@ -33,16 +34,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="min-h-screen">
         {/* Top nav */}
         <header className="fixed top-0 inset-x-0 z-50 flex items-center justify-between px-6 py-4 md:px-12">
-          <a
+          <Link
             href="/"
             className="font-display text-lg tracking-tight text-espresso hover:text-terracotta transition-colors duration-200"
             style={{ fontFamily: 'var(--font-cormorant)', letterSpacing: '-0.02em' }}
           >
             Jana
-          </a>
+          </Link>
           <nav className="flex items-center gap-6 text-sm text-stone-warm font-sans">
-            <a href="/" className="hover:text-espresso transition-colors duration-200">Modules</a>
-            <a href="/glossary" className="hover:text-espresso transition-colors duration-200">Glossary</a>
+            <Link href="/" className="hover:text-espresso transition-colors duration-200">Modules</Link>
+            <Link href="/glossary" className="hover:text-espresso transition-colors duration-200">Glossary</Link>
           </nav>
         </header>
 
