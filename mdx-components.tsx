@@ -9,6 +9,14 @@ import { TokenDemo }          from '@/components/learn/TokenDemo'
 import { ContextWindowDemo }  from '@/components/learn/ContextWindowDemo'
 import { TemperatureDemo }    from '@/components/learn/TemperatureDemo'
 import { CompareProviders }   from '@/components/learn/CompareProviders'
+import { PatternMatcherDemo } from '@/components/learn/PatternMatcherDemo'
+import { NextWordDemo }       from '@/components/learn/NextWordDemo'
+import { CanItQuiz }          from '@/components/learn/CanItQuiz'
+import { AgentLoopDemo }      from '@/components/learn/AgentLoopDemo'
+import { DiffusionDemo }      from '@/components/learn/DiffusionDemo'
+import { ArtifactSpotter }    from '@/components/learn/ArtifactSpotter'
+import { RecipeBuilder }      from '@/components/learn/RecipeBuilder'
+import { HypeScorer }         from '@/components/learn/HypeScorer'
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
@@ -23,6 +31,14 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     ContextWindowDemo,
     TemperatureDemo,
     CompareProviders,
+    PatternMatcherDemo,
+    NextWordDemo,
+    CanItQuiz,
+    AgentLoopDemo,
+    DiffusionDemo,
+    ArtifactSpotter,
+    RecipeBuilder,
+    HypeScorer,
 
     // Override default HTML elements for the editorial feel
     h1: ({ children }) => (
