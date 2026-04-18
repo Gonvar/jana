@@ -19,10 +19,20 @@ import { TokenDemo }         from '@/components/learn/TokenDemo'
 import { ContextWindowDemo } from '@/components/learn/ContextWindowDemo'
 import { TemperatureDemo }   from '@/components/learn/TemperatureDemo'
 import { CompareProviders }  from '@/components/learn/CompareProviders'
+import { PatternMatcherDemo } from '@/components/learn/PatternMatcherDemo'
+import { NextWordDemo }       from '@/components/learn/NextWordDemo'
+import { CanItQuiz }          from '@/components/learn/CanItQuiz'
+import { AgentLoopDemo }      from '@/components/learn/AgentLoopDemo'
+import { DiffusionDemo }      from '@/components/learn/DiffusionDemo'
+import { ArtifactSpotter }    from '@/components/learn/ArtifactSpotter'
+import { RecipeBuilder }      from '@/components/learn/RecipeBuilder'
+import { HypeScorer }         from '@/components/learn/HypeScorer'
 
 const MDX_COMPONENTS = {
   Analogy, KeyIdea, CanDo, CantDo, TryThis, Glossary,
   TokenDemo, ContextWindowDemo, TemperatureDemo, CompareProviders,
+  PatternMatcherDemo, NextWordDemo, CanItQuiz, AgentLoopDemo,
+  DiffusionDemo, ArtifactSpotter, RecipeBuilder, HypeScorer,
   h2: ({ children }: { children: React.ReactNode }) => (
     <h2 style={{ fontFamily: 'var(--font-cormorant)', fontWeight: 400, letterSpacing: '-0.01em' }}
         className="text-3xl text-espresso leading-tight mt-12 mb-4 pb-2 border-b border-stone-border">
